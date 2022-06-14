@@ -1,3 +1,4 @@
+![Capa](https://user-images.githubusercontent.com/57693018/173703622-ccd0ce1d-99d6-4579-a52d-c73ae8e99550.png)
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
