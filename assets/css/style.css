@@ -1,0 +1,378 @@
+/* ===== Reset ============================= */
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* ===== Geral ============================= */
+:root {
+  font-size: 62.5%;
+
+  --nav-height: 10rem;
+
+  --background: #000;
+  --text-color: #FFF;
+  --button: #8257E5;
+  --border: #29292E;
+  --border-menu-mobile: #A8A8B3;
+  --text-color-menu-mobile: #E1E1E6;
+}
+
+html, body{
+  height: 100%;
+}
+
+body{
+  background-color: var(--background);
+
+  font-size: 1.6rem;
+
+  position: relative;
+}
+
+.container{
+  max-width: 91.8rem;
+
+  margin-inline: auto;
+  padding-inline: 2.6rem;
+}
+
+img{
+  max-width: 100%;
+}
+
+/* ===== Edit scrollbar ============================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--button);
+}
+
+/* ===== Header ============================= */
+header{
+  padding-top: 3rem;
+
+  height: var(--nav-height);
+}
+
+header > .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-desktop{
+  display: none;
+}
+
+.menu{
+  opacity: 0;
+  visibility: hidden;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--background);
+
+  padding-top: var(--nav-height);
+
+  transform: translateX(-100%);
+
+  transition: transform 300ms;
+}
+
+body.menu-expanded .menu{
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(0);
+}
+
+body.menu-expanded .logo-mobile,
+body.menu-expanded .close-menu{
+  position: relative;
+  z-index: 1;
+}
+
+.menu a{
+  color: var(--border-menu-mobile);
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+
+  display: inline-block;
+
+  padding-block: 1.6rem;
+  padding-left: 3rem;
+
+  position: relative;
+}
+
+
+
+.active-link{
+  color: var(--text-color-menu-mobile);
+  font-weight: 700;
+}
+
+.active-link::after{
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  height: 100%;
+  width: 5px;
+  
+  background-color: var(--button);
+}
+
+.get-coffe{
+  display: none;
+
+  background: none;
+
+  text-transform: uppercase;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  
+  border: 1px solid var(--button);
+  border-radius: 6px;
+
+  padding: 1.1rem 3.8rem;
+
+  cursor: pointer;
+
+  transition: background 300ms;
+}
+
+.get-coffe:hover{
+  background-color: var(--button);
+}
+
+.open-menu,
+.close-menu{
+  background: none;
+
+  cursor: pointer;
+}
+
+.close-menu,
+body.menu-expanded .open-menu{
+  display: none;
+}
+
+body.menu-expanded .close-menu{
+  display: block;
+}
+
+/* ===== Home ============================= */
+#home{
+  height: calc(100vh - var(--nav-height));
+}
+
+#home > .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+}
+
+.text-home h3{
+  color: var(--text-color);
+  text-align: center;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 4.1rem;
+
+  margin-block: 8.8rem;
+
+  width: min(50rem, 100%);
+  margin-inline: auto;
+}
+
+.text-home .get-coffe{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-inline: auto;
+
+  margin-bottom: 9.8rem;
+}
+
+.text-home h2{
+  color: var(--text-color);
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 6.8rem;
+  letter-spacing: -0.03rem;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.text-home h2:nth-of-type(2){
+  color: #000;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #8257E5;
+}
+
+/* ===== Blur ============================= */
+
+.blur-one,
+.blur-two{
+  display: none;
+
+  position: fixed;
+  z-index: -1;
+}
+
+.blur-one{
+  left: 0;
+  bottom: 0;
+}
+
+.blur-two{
+  right: 0;
+  top: 0;
+}
+
+.blur-mobile{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  
+  width: 100%;
+}
+
+@media (min-width: 400px){
+  .text-home h2{
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 918px){
+  /* ===== Header ============================= */
+  .logo-mobile,
+  body.menu-expanded .close-menu,
+  .open-menu{
+    display: none;
+  }
+
+  .logo-desktop{
+    display: block;
+  }
+
+  .menu{
+    opacity: 1;
+    visibility: visible;
+
+    position: initial;
+
+    width: initial;
+    height: initial;
+
+    background-color: initial;
+
+    padding: 0;
+
+    transform: initial;
+
+    transition: initial;
+  }
+
+  .menu ul{
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  .menu a{
+    padding: 0;
+
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: var(--text-color);
+
+    transition: color 300ms;
+  }
+
+  .menu a:hover{
+    color: var(--button);
+  }
+  
+  .menu a::before{
+    content: "";
+  
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+  
+    height: 2px;
+    width: 0;
+    background-color: var(--button);
+  
+    transition: width 300ms;
+  }
+  
+  .menu a:hover::before{
+    width: 100%;
+  }
+
+  .active-link::after{
+    display: none;
+  }
+
+  .get-coffe{
+    display: block;
+  }
+
+  /* ===== Home ============================= */
+
+  #home .get-coffe{
+    display: none;
+  }
+
+  .text-home h3,
+  .text-home .get-coffe{
+    display: none;
+  }
+
+  .text-home h2{
+    font-size: 8rem;
+    line-height: 10.9rem;
+  }
+  
+  .text-home h2:nth-of-type(1){
+    margin-top: 4rem;
+  }
+
+  /* ===== Blur ============================= */
+
+  .blur-one,
+  .blur-two{
+    display: block;
+  }
+
+  .blur-mobile{
+    display: none;
+  }
+
+}
